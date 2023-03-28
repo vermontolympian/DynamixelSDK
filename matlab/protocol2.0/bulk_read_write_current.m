@@ -49,6 +49,16 @@ if ~libisloaded(lib_name)
 end
 
 % Control table address
+ADDR_TORQUE_ENABLE          = 64;
+ADDR_GOAL_CURRENT           = 102;
+ADDR_GOAL_POSITION          = 116;
+ADDR_PRESENT_POSITION       = 132;
+ADDR_PRESENT_CURRENT        = 126;
+ADDR_CURRENT_LIMIT          = 38;
+DXL_MINIMUM_POSITION_VALUE  = 1000; % Dynamixel will rotate between this value
+DXL_MAXIMUM_POSITION_VALUE  = 3000; % and this value (note that the Dynamixel would not move when the position value is out of movable range. Check e-manual about the range of the Dynamixel you use.)
+
+
 ADDR_PRO_TORQUE_ENABLE          = 562;          % Control table address is different in Dynamixel model
 ADDR_PRO_LED_RED                = 563;
 ADDR_PRO_GOAL_POSITION          = 596;
@@ -65,7 +75,7 @@ PROTOCOL_VERSION                = 2.0;          % See which protocol version is 
 % Default setting
 DXL1_ID                         = 11;            % Dynamixel#1 ID: 1
 DXL2_ID                         = 12;            % Dynamixel#2 ID: 2
-BAUDRATE                        = 57600;
+BAUDRATE                        = 1000000;
 DEVICENAME                      = 'COM6';       % Check which port is being used on your controller
                                                 % ex) Windows: 'COM1'   Linux: '/dev/ttyUSB0' Mac: '/dev/tty.usbserial-*'
 
